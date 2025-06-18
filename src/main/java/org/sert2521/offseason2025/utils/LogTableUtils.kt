@@ -1,4 +1,4 @@
-package sert2521.offseason2025.utils
+package org.sert2521.offseason2025.utils
 
 import edu.wpi.first.units.Measure
 import edu.wpi.first.units.Unit

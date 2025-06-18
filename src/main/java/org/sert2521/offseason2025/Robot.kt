@@ -1,4 +1,4 @@
-package sert2521.offseason2025
+package org.sert2521.offseason2025
 
 import edu.wpi.first.hal.FRCNetComm.tInstances
 import edu.wpi.first.hal.FRCNetComm.tResourceType

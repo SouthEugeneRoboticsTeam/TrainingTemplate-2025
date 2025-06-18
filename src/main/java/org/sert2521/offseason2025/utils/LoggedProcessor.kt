@@ -1,4 +1,4 @@
-package sert2521.offseason2025.utils
+package org.sert2521.offseason2025.utils
 
 import com.google.devtools.ksp.processing.*
 import com.google.devtools.ksp.symbol.KSAnnotated
@@ -20,7 +20,7 @@ class LoggedProcessor(private val codeGenerator: CodeGenerator) : SymbolProcesso
 
     override fun process(resolver: Resolver): List<KSAnnotated> {
         val annotatedClasses =
-            resolver.getSymbolsWithAnnotation("org.team9432.annotation.Logged").filterIsInstance<KSClassDeclaration>()
+            resolver.getSymbolsWithAnnotation("org.sert2521.offseason2025.utils.Logged").filterIsInstance<KSClassDeclaration>()
         annotatedClasses.forEach { process(it) }
         return annotatedClasses.filterNot { it.validate() }.toList()
     }

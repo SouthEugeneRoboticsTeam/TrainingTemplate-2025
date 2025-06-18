@@ -16,7 +16,7 @@ java {
     targetCompatibility = javaVersion
 }
 
-def ROBOT_MAIN_CLASS = "sert2521.offseason2025.Main"
+def ROBOT_MAIN_CLASS = "org.sert2521.offseason2025.Main"
 
 // Define my targets (RoboRIO) and artifacts (deployable files)
 // This is added by GradleRIO's backing project DeployUtils.

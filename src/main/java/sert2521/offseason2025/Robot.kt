@@ -6,6 +6,7 @@ import edu.wpi.first.hal.HAL
 import edu.wpi.first.wpilibj.TimedRobot
 import edu.wpi.first.wpilibj.util.WPILibVersion
 import edu.wpi.first.wpilibj2.command.CommandScheduler
+import org.littletonrobotics.junction.LoggedRobot
 
 /**
  * The functions in this object (which basically functions as a singleton class) are called automatically
@@ -17,7 +18,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler
  * the `Main.kt` file in the project. (If you use the IDE's Rename or Move refactorings when renaming the
  * object or package, it will get changed everywhere.)
  */
-object Robot : TimedRobot()
+object Robot : LoggedRobot()
 {
 
 

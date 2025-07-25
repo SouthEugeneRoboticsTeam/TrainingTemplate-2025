@@ -5,6 +5,7 @@ plugins {
     id "java"
     id "org.jetbrains.kotlin.jvm" version "2.1.0"
     id "edu.wpi.first.GradleRIO" version "2025.3.2"
+    id "com.google.devtools.ksp" version "2.1.0-1.0.29"
     id "idea"
 }
 
@@ -86,11 +87,9 @@ dependencies {
     implementation("com.squareup:kotlinpoet:1.14.2")
     implementation("com.squareup:kotlinpoet-ksp:1.14.2")
     implementation("com.google.devtools.ksp:symbol-processing-api:2.1.0-1.0.29")
-}
 
-test{
-    useJUnitPlatform()
-    systemProperty 'junit.jupiter.extensions.autodetection.enabled', 'true'
+    implementation("org.team9432.lib:annotation")
+    ksp("org.team9432.lib:annotation")
 }
 
 // Simulation configuration (e.g. environment variables).

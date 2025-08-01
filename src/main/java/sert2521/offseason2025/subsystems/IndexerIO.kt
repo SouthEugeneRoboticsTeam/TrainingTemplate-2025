@@ -5,10 +5,16 @@ import org.team9432.annotation.Logged
 interface IndexerIO {
     @Logged
     open class IndexerIOInputs{
-        // Add all inputs
+        var appliedVolts = 0.0
+        var currentAmps = 0.0
+        var velocityRPM = 0.0
+
+        var beambreakClear = true
     }
 
     fun updateInputs(inputs:IndexerIOInputs){}
 
-    // Add all needed functions
+    fun setMotor(speed: Double) {}
+
+    fun setVoltage(voltage: Double) {}
 }

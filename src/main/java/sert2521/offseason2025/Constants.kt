@@ -8,3 +8,7 @@ object IntakeConstants{
     const val INTAKE_ROLLERS_MOTOR_ID = 10
     const val INTAKE_ALIGNMENT_MOTOR_ID = 13
 }
+object WristConstants{
+    const val WRIST_LEFT_MOTOR_ID = 0
+    const val WRIST_RIGHT_MOTOR_ID = 0
+}

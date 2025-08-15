@@ -38,10 +38,10 @@ class WristIOSpark : WristIO {
         inputs.absoluteEncoderRadians = leftMotor.absoluteEncoder.position
     }
 
-    override fun setSpeedLeftMotor(speed: Double) {
-        leftMotor.set(speed)
+    override fun setVoltageLeftMotor(volts: Double) {
+        leftMotor.setVoltage(volts)
     }
-    override fun setSpeedRightMotor(speed: Double) {
-        rightMotor.set(speed)
+    override fun setVoltageRightMotor(volts: Double) {
+        rightMotor.setVoltage(volts)
     }
 }

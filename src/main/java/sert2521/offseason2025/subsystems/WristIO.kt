@@ -14,9 +14,9 @@ interface WristIO {
         var absoluteEncoderRadians = 0.0
     }
 
-    fun setSpeedLeftMotor(speed:Double) {}
+    fun setVoltageLeftMotor(volts:Double) {}
 
-    fun setSpeedRightMotor(speed: Double) {}
+    fun setVoltageRightMotor(volts: Double) {}
 
     fun updateInputs(inputs: WristIOInputs) {}
 }

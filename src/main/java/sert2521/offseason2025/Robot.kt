@@ -6,6 +6,12 @@ import edu.wpi.first.hal.HAL
 import edu.wpi.first.wpilibj.TimedRobot
 import edu.wpi.first.wpilibj.util.WPILibVersion
 import edu.wpi.first.wpilibj2.command.CommandScheduler
+import org.littletonrobotics.junction.LogFileUtil
+import org.littletonrobotics.junction.LoggedRobot
+import org.littletonrobotics.junction.Logger
+import org.littletonrobotics.junction.networktables.NT4Publisher
+import org.littletonrobotics.junction.wpilog.WPILOGReader
+import org.littletonrobotics.junction.wpilog.WPILOGWriter
 
 /**
  * The functions in this object (which basically functions as a singleton class) are called automatically
@@ -17,7 +23,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler
  * the `Main.kt` file in the project. (If you use the IDE's Rename or Move refactorings when renaming the
  * object or package, it will get changed everywhere.)
  */
-object Robot : TimedRobot()
+object Robot : LoggedRobot()
 {
 
 
@@ -32,6 +38,28 @@ object Robot : TimedRobot()
         // Report the use of the Kotlin Language for "FRC Usage Report" statistics.
         // Please retain this line so that Kotlin's growing use by teams is seen by FRC/WPI.
         HAL.report(tResourceType.kResourceType_Language, tInstances.kLanguage_Kotlin, 0, WPILibVersion.Version)
+        Input
+
+        when (MetaConstants.currentMode) {
+            MetaConstants.Mode.REAL -> {
+                // Running on a real robot, log to a USB stick ("/U/logs")
+                Logger.addDataReceiver(WPILOGWriter())
+                Logger.addDataReceiver(NT4Publisher())
+            }
+
+            MetaConstants.Mode.SIM ->         // Running a physics simulator, log to NT
+                Logger.addDataReceiver(NT4Publisher())
+
+            MetaConstants.Mode.REPLAY -> {
+                // Replaying a log, set up replay source
+                setUseTiming(false) // Run as fast as possible
+                val logPath = LogFileUtil.findReplayLog()
+                Logger.setReplaySource(WPILOGReader(logPath))
+                Logger.addDataReceiver(WPILOGWriter(LogFileUtil.addPathSuffix(logPath, "_sim")))
+            }
+        }
+
+        Logger.start()
     }
 
 
